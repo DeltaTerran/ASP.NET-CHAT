@@ -7,17 +7,20 @@ const App = () => {
 	const [connection, setConnection] = useState(null);
 	const [messages, setMessages] = useState([]);
 	const [chatRoom, setChatRoom] = useState([]);
-
+/*
+1. 
+*/
 	const joinChat = async (userName, chatRoom) => {
+		//№1
 		var connection = new HubConnectionBuilder()
 			.withUrl("http://localhost:5022/chat")
 			.withAutomaticReconnect()
 			.build();
-
+		//№2
 		connection.on("ReceiveMessage", (userName, message) => {
 			setMessages((messages) => [...messages, { userName, message }]);
 		});
-
+	 	//№3
 		try {
 			await connection.start();
 			await connection.invoke("JoinChat", { userName, chatRoom });
