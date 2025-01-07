@@ -30,6 +30,7 @@ public class ChatHub : Hub<IChatClient>
 
         var cacheKey = Context.ConnectionId;
         _memoryCache.Set(cacheKey, connection, TimeSpan.FromMinutes(30));
+        #region Old Code
         //var stringConnection = JsonSerializer.Serialize(connection);
         //var stringConnection = "{\u0022username\u0022:\u0022" + connection.UserName + "\u0022, \u0022ChatRoom\u0022:\u0022" + connection.ChatRoom + "\u0022}";
         //if (string.IsNullOrEmpty(connection.UserName) || string.IsNullOrEmpty(connection.ChatRoom))
@@ -37,7 +38,7 @@ public class ChatHub : Hub<IChatClient>
         //    throw new ArgumentException("UserName or ChatRoom is null or empty");
         //}
         //await _cache.SetStringAsync(Context.ConnectionId, stringConnection);
-
+        #endregion
 
         await Groups.AddToGroupAsync(Context.ConnectionId, connection.ChatRoom);
 
@@ -49,7 +50,6 @@ public class ChatHub : Hub<IChatClient>
         var cachedConnection = _memoryCache.Get<UserConnection>(cacheKey);
         if (cachedConnection != null)
         {
-            // Действия с данными из кэша
         }
 
     }
