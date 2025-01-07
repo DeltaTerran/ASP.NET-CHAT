@@ -33,10 +33,10 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 					type="text"
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
-					placeholder="Введите сообщение"
+					placeholder="Введіть повідомлення"
 				/>
 				<Button colorScheme="blue" onClick={onSendMessage}>
-					Отправить
+				Надіслати
 				</Button>
 			</div>
 		</div>

@@ -17,23 +17,23 @@ export const WaitingRoom = ({ joinChat }) => {
 		>
 			<Heading size="lg">Онлайн чат</Heading>
 			<div className="mb-4">
-				<Text fontSize={"sm"}>Имя пользователя</Text>
+				<Text fontSize={"sm"}>Ім'я користувача</Text>
 				<Input
 					name="username"
-					placeholder="Введите ваше имя"
+					placeholder="Введіть ваше ім'я"
 					onChange={(e) => setUserName(e.target.value)}
 				/>
 			</div>
 			<div className="mb-6">
-				<Text fontSize={"sm"}>Название чата</Text>
+				<Text fontSize={"sm"}>Назва чату</Text>
 				<Input
 					name="chatname"
-					placeholder="Введите название чата"
+					placeholder="Введіть назву чату"
 					onChange={(e) => setChatRoom(e.target.value)}
 				/>
 			</div>
 			<Button type="submit" colorScheme="blue">
-				Присоединиться
+			Приєднатися
 			</Button>
 		</form>
 	);
